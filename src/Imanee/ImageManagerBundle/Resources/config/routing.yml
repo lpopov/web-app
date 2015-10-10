@@ -1,3 +1,7 @@
 imanee_image_manager_homepage:
-    path:     /image-manager
+    path:     /imanee/image-manager
     defaults: { _controller: ImaneeImageManagerBundle:Default:index }
+
+imanee_image_quote:
+    path:     /imanee/quote
+    defaults: { _controller: ImaneeImageManagerBundle:Default:generateTweetable }
