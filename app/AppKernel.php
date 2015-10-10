@@ -29,6 +29,7 @@ class AppKernel extends Kernel
 
             new Sonata\DoctrineORMAdminBundle\SonataDoctrineORMAdminBundle(),
             new Sonata\AdminBundle\SonataAdminBundle(),
+            new Imanee\ImageManagerBundle\ImaneeImageManagerBundle(),
         );
 
         if (in_array($this->getEnvironment(), ['dev', 'test'])) {

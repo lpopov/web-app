@@ -1,0 +1,3 @@
+imanee_image_manager_homepage:
+    path:     /image-manager
+    defaults: { _controller: ImaneeImageManagerBundle:Default:index }
