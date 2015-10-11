@@ -34,6 +34,10 @@ var highlighter = {
         $('#imanee-highlighter-menu')
             .removeClass('highlighter-menu-active')
         ;
+    },
+
+    onButtonClick: function(selectedText) {
+        $('#quotable_image').html('<img src="/app_dev.php/imanee/highlighter/quote?text=' + selectedText + '">');
     }
 };
 
@@ -67,10 +71,7 @@ $( '.js--toggle-highlight-mode' ).on( 'click', function ( ev ) {
 
     if ( $( 'body' ).hasClass( 'highlight-mode' ) ) {
         var text = getSelectionText();
-        //get quote image
-        $('#quotable_image').html('<img src="/app_dev.php/imanee/highlighter/quote?text=' + text + '">');
-
-        // set focus to the text field
+        highlighter.onButtonClick(text);
         setTimeout(function () {
             $('.js--highlight-panel-text'). val('"' + text + '"');
             $('.js--highlight-panel-text').focus();

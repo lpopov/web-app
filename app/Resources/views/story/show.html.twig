@@ -25,22 +25,7 @@
 
 {% block body %}
 
-<div class="highlight-panel">
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-12 col-md-6">
-                <form action="{{ path('devhuman_search') }}">
-                    <textarea name="text" class="highlight-panel__form  js--highlight-panel-text" placeholder="Text to Share">
-                    </textarea>
-                    <p class="highlight-panel__text">SHARE</p>
-                </form>
-            </div>
-             <div class="col-xs-12 col-md-6">
-                 <div id="quotable_image"> </div>
-             </div>
-        </div>
-    </div>
-</div>
+{% include 'ImaneeHighlighterBundle::highlight_panel.html.twig' %}
 
 <div class="container">
     <div class="boxed  push-down-60">
@@ -149,6 +134,11 @@
 
     <script type="text/javascript">
         $(function() {
+
+            highlighter.onButtonClick = function (selectedText) {
+                $('#quotable_image').html('<img src="/app_dev.php/imanee/highlighter/quote?text=' + selectedText + '">');
+            };
+
             highlighter.init('post-content');
         });
     </script>
