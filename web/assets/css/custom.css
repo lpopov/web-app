@@ -161,3 +161,9 @@ div.about {
 div.about ol li {
     margin-bottom: 10px;
 }
+
+div.quote-share-button {
+    position: absolute;
+    top: 0;
+    left: 0;
+}

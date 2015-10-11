@@ -118,6 +118,9 @@
         </div>
     </div>
 
+    <div class="hidden quote-share-button" id="quote-share-button">
+        <a href="#" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-share"></span></a>
+    </div>
 {% endblock %}
 
 {% block javascripts %}
@@ -125,4 +128,37 @@
 
     <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-526833fd774882a3" async="async"></script>
 
+    <script type="text/javascript">
+        function getSelectionText() {
+            var text = "";
+            if (window.getSelection) {
+                text = window.getSelection().toString();
+            } else if (document.selection && document.selection.type != "Control") {
+                text = document.selection.createRange().text;
+            }
+
+            return text;
+        }
+
+        function handleSelectedText() {
+            var selectedText = getSelectionText();
+            if (selectedText) {
+                showQuoteButton();
+                alert("Got selected text " + selectedText);
+            }
+        }
+
+        function showQuoteButton() {
+
+            $('#quote-share-button')
+                .css('top', '200px;')
+                .css('left', '500px')
+                .removeClass('hidden')
+            ;
+        }
+
+        document.onmouseup = handleSelectedText;
+        document.onkeyup = handleSelectedText;
+
+    </script>
 {% endblock %}
