@@ -1,0 +1,3 @@
+imanee_image_quote:
+    path:     /imanee/highlighter/quote
+    defaults: { _controller: ImaneeHighlighterBundle:Default:generateTweetable }

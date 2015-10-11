@@ -25,6 +25,23 @@
 
 {% block body %}
 
+<div class="highlight-panel">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-md-6">
+                <form action="{{ path('devhuman_search') }}">
+                    <textarea name="text" class="highlight-panel__form  js--highlight-panel-text" placeholder="Text to Share">
+                    </textarea>
+                    <p class="highlight-panel__text">SHARE</p>
+                </form>
+            </div>
+             <div class="col-xs-12 col-md-6">
+                 <div id="quotable_image"> </div>
+             </div>
+        </div>
+    </div>
+</div>
+
 <div class="container">
     <div class="boxed  push-down-60">
 
@@ -34,10 +51,15 @@
         <div class="row">
             <div class="col-xs-10  col-xs-offset-1  col-md-8  col-md-offset-2  push-down-60">
                 <!-- Start of the content -->
-                <div class="post-content">
-                    <h1>{{ story.title }}</h1>
-                    {{ content|raw }}
-                </div>
+                    <div class="post-content" id="post-content">
+                        <h1>{{ story.title }}</h1>
+                        {{ content|raw }}
+
+                        <div class="imanee-highlighter-menu" id="imanee-highlighter-menu">
+                            <a href="#" class="btn btn-primary btn-sm js--toggle-highlight-mode"><span class="glyphicon glyphicon-share"></span> Share Quote</a>
+                        </div>
+                    </div>
+
                 <!-- End of the content -->
                 <div class="row">
                     <div class="col-xs-12  col-sm-6">
@@ -118,47 +140,16 @@
         </div>
     </div>
 
-    <div class="hidden quote-share-button" id="quote-share-button">
-        <a href="#" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-share"></span></a>
-    </div>
+
 {% endblock %}
 
 {% block javascripts %}
     {{ parent() }}
-
     <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-526833fd774882a3" async="async"></script>
 
     <script type="text/javascript">
-        function getSelectionText() {
-            var text = "";
-            if (window.getSelection) {
-                text = window.getSelection().toString();
-            } else if (document.selection && document.selection.type != "Control") {
-                text = document.selection.createRange().text;
-            }
-
-            return text;
-        }
-
-        function handleSelectedText() {
-            var selectedText = getSelectionText();
-            if (selectedText) {
-                showQuoteButton();
-                alert("Got selected text " + selectedText);
-            }
-        }
-
-        function showQuoteButton() {
-
-            $('#quote-share-button')
-                .css('top', '200px;')
-                .css('left', '500px')
-                .removeClass('hidden')
-            ;
-        }
-
-        document.onmouseup = handleSelectedText;
-        document.onkeyup = handleSelectedText;
-
+        $(function() {
+            highlighter.init('post-content');
+        });
     </script>
 {% endblock %}

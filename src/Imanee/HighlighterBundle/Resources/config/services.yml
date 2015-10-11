@@ -1,0 +1,4 @@
+services:
+#    imanee_highlighter.example:
+#        class: Imanee\HighlighterBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]

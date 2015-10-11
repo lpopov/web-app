@@ -16,6 +16,7 @@
         {% stylesheets
         'assets/bootstrap/css/bootstrap.min.css'
         'assets/css/main.css'
+        'bundles/imaneehighlighter/css/highlighter.css'
         'assets/css/custom.css'
         filter='cssrewrite' output='css/app.css' %}
         <link rel="stylesheet" href="{{ asset_url }}" />
@@ -123,6 +124,7 @@
     {% javascripts
         'assets/bootstrap/js/bootstrap.min.js'
         'assets/js/searchMode.js'
+        'bundles/imaneehighlighter/js/highlighter.js'
         output='js/app.js' %}
         <script data-main="scripts/main" src="{{ asset_url }}"></script>
     {% endjavascripts %}

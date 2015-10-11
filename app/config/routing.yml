@@ -1,3 +1,7 @@
+imanee_highlighter:
+    resource: "@ImaneeHighlighterBundle/Resources/config/routing.yml"
+    prefix:   /
+
 imanee_image_manager:
     resource: "@ImaneeImageManagerBundle/Resources/config/routing.yml"
     prefix:   /
